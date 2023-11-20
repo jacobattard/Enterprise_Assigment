@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Domain.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,16 @@ namespace Data.Repositories
 {
     internal class FlightDBRepository
     {
+        public FlightDBRepository() { }
+
+        public Flight GetFlight(Guid id)
+        {
+            return null;
+        }
+
+        public IQueryable<Flight> GetFlights()
+        {
+            return null;
+        }
     }
 }
