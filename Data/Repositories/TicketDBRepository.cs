@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Data.Repositories
 {
-    internal class TicketDBRepository
+    public class TicketDBRepository
     {
         public TicketDBRepository() { }
 

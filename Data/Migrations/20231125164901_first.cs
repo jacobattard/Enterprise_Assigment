@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Data.Migrations
 {
-    public partial class FirstMigration : Migration
+    public partial class first : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -53,14 +53,14 @@ namespace Data.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false, defaultValueSql: "NEWID()"),
-                    Rows = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Columns = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    DepartureDate = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ArrivalDate = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Rows = table.Column<int>(type: "int", nullable: false),
+                    Columns = table.Column<int>(type: "int", nullable: false),
+                    DepartureDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ArrivalDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     CountryFrom = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CountryTo = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    WholesalePrice = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CommisionRate = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    WholesalePrice = table.Column<double>(type: "float", nullable: false),
+                    CommisionRate = table.Column<double>(type: "float", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -74,9 +74,9 @@ namespace Data.Migrations
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false, defaultValueSql: "NEWID()"),
                     Row = table.Column<int>(type: "int", nullable: false),
                     Column = table.Column<int>(type: "int", nullable: false),
-                    FlightIdFK = table.Column<int>(type: "int", nullable: false),
+                    FlightIdFK = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Passport = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    PricePaid = table.Column<int>(type: "int", nullable: false),
+                    PricePaid = table.Column<double>(type: "float", nullable: false),
                     Cancelled = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>

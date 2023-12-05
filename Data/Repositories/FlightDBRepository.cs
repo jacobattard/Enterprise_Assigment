@@ -1,4 +1,6 @@
-﻿using Domain.Models;
+﻿using Data.DataContext;
+using Domain.Interfaces;
+using Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,18 +9,24 @@ using System.Threading.Tasks;
 
 namespace Data.Repositories
 {
-    internal class FlightDBRepository
+    public class FlightDBRepository : IFlights
     {
-        public FlightDBRepository() { }
+        public AirlineDBContext _airlineContext { get; set; }
 
-        public Flight GetFlight(Guid id)
+        public FlightDBRepository(AirlineDBContext airlineContext)
         {
-            return null;
+            _airlineContext = airlineContext;
         }
 
         public IQueryable<Flight> GetFlights()
         {
-            return null;
+            return _airlineContext.Flights;
         }
+
+        public Flight GetFlight(Guid id)    
+        {
+            return _airlineContext.Flights.SingleOrDefault(x => x.Id == id);
+        }
+
     }
 }

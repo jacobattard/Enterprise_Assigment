@@ -1,4 +1,6 @@
 using Data.DataContext;
+using Data.Repositories;
+using Domain.Interfaces;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -19,6 +21,8 @@ namespace Presentation
             builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<AirlineDBContext>();
             builder.Services.AddControllersWithViews();
+
+            builder.Services.AddScoped<IFlights, FlightDBRepository>();
 
             var app = builder.Build();
 

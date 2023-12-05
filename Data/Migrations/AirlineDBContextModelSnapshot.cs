@@ -17,7 +17,7 @@ namespace Data.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.25")
+                .HasAnnotation("ProductVersion", "6.0.22")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
@@ -29,17 +29,14 @@ namespace Data.Migrations
                         .HasColumnType("uniqueidentifier")
                         .HasDefaultValueSql("NEWID()");
 
-                    b.Property<string>("ArrivalDate")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("ArrivalDate")
+                        .HasColumnType("datetime2");
 
-                    b.Property<string>("Columns")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Columns")
+                        .HasColumnType("int");
 
-                    b.Property<string>("CommisionRate")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<double>("CommisionRate")
+                        .HasColumnType("float");
 
                     b.Property<string>("CountryFrom")
                         .IsRequired()
@@ -49,17 +46,14 @@ namespace Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("DepartureDate")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("DepartureDate")
+                        .HasColumnType("datetime2");
 
-                    b.Property<string>("Rows")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Rows")
+                        .HasColumnType("int");
 
-                    b.Property<string>("WholesalePrice")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<double>("WholesalePrice")
+                        .HasColumnType("float");
 
                     b.HasKey("Id");
 
@@ -79,15 +73,15 @@ namespace Data.Migrations
                     b.Property<int>("Column")
                         .HasColumnType("int");
 
-                    b.Property<int>("FlightIdFK")
-                        .HasColumnType("int");
+                    b.Property<Guid>("FlightIdFK")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Passport")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("PricePaid")
-                        .HasColumnType("int");
+                    b.Property<double>("PricePaid")
+                        .HasColumnType("float");
 
                     b.Property<int>("Row")
                         .HasColumnType("int");

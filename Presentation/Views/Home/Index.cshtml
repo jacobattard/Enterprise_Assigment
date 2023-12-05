@@ -1,8 +1,31 @@
-﻿@{
+﻿@model IEnumerable<Presentation.Models.ViewModels.ListFlightsViewModel>
+﻿
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Departure Date</th>
+                <th scope="col">Departure From</th>
+                <th scope="col">Arrival Date</th>
+                <th scope="col">Arrival to</th>
+                <th scope="col">Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr onclick="window.location.href='Home/Seats?flightId=@item.Id'">
+                    <td>@item.DepartureDate</td>
+                    <td>@item.CountryFrom</td>
+                    <td>@item.ArrivalDate</td>
+                    <td>@item.CountryTo</td>
+                    <td>@((@item.WholesalePrice * (1 + @item.CommisionRate)) + @item.WholesalePrice)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </div>
