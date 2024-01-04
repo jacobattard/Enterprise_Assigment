@@ -44,16 +44,27 @@ namespace Presentation.Controllers
 
         public IActionResult Seats(Guid flightId)
         {
-            var flight = _flightRepository.GetFlight(flightId);
 
-            var viewModel = new ListFlightsViewModel()
+            var flightDetails = _flightRepository.GetFlight(flightId);
+
+            if (flightDetails != null)
             {
-                Rows = flight.Rows,
-                Columns = flight.Columns,
-            };
+                var viewModel = new ListFlightsViewModel
+                {
+                    Id = flightDetails.Id,
+                    Rows = flightDetails.Rows,
+                    Columns = flightDetails.Columns,
+                    WholesalePrice = flightDetails.WholesalePrice,
+                    CommisionRate= flightDetails.CommisionRate
+                    // Other necessary details for the booking form
+                };
 
-            return View(viewModel);
+                return View("Seats", viewModel); // Render the booking form view
+            }
+
+            return NotFound();
         }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

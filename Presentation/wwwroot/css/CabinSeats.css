@@ -105,7 +105,7 @@ input[type="checkbox"] {
 }
 
     input[type="checkbox"]:checked + label {
-        background: #bada55;
+        background: #f42536;
         -webkit-animation-name: rubberBand;
         animation-name: rubberBand;
         animation-duration: 300ms;
@@ -141,7 +141,7 @@ label {
     font-weight: bold;
     line-height: 1.5rem;
     padding: 4px 0;
-    background: #f42536;
+    background: #bada55;
     border-radius: 5px;
     animation-duration: 300ms;
     animation-fill-mode: both;

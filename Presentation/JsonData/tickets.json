@@ -1,0 +1,22 @@
+[
+  {
+    "Id": "36d31224-ed5a-431d-a338-45542168087a",
+    "Row": 1,
+    "Column": 1,
+    "FlightIdFK": "39a6e044-6a2a-455b-b77a-5dc55f30a354",
+    "Passport": "1",
+    "PassportImagePath": "IMG_20230807_180356.jpg",
+    "PricePaid": 440,
+    "Cancelled": false
+  },
+  {
+    "Id": "e918b44b-e859-4a35-a5f3-61e77c82482d",
+    "Row": 1,
+    "Column": 2,
+    "FlightIdFK": "39a6e044-6a2a-455b-b77a-5dc55f30a354",
+    "Passport": "3",
+    "PassportImagePath": "IMG_20230807_180356.jpg",
+    "PricePaid": 440,
+    "Cancelled": false
+  }
+]

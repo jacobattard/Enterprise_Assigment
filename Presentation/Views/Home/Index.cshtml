@@ -1,5 +1,4 @@
 ﻿@model IEnumerable<Presentation.Models.ViewModels.ListFlightsViewModel>
-﻿
 @{
     ViewData["Title"] = "Home Page";
 }
@@ -16,7 +15,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var item in Model)
+            @foreach (var item in Model.Where(f => f.DepartureDate >= DateTime.Today))
             {
                 <tr onclick="window.location.href='Home/Seats?flightId=@item.Id'">
                     <td>@item.DepartureDate</td>

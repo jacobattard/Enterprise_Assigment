@@ -23,6 +23,10 @@ namespace Presentation
             builder.Services.AddControllersWithViews();
 
             builder.Services.AddScoped<IFlights, FlightDBRepository>();
+            builder.Services.AddScoped<ITickets, TicketDBRepository>();
+            builder.Services.AddScoped<ITicketRepository, TicketFileRepository>();
+
+
 
             var app = builder.Build();
 
