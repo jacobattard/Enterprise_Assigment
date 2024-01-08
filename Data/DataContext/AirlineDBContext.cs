@@ -11,7 +11,7 @@ using System.Xml.Linq;
 
 namespace Data.DataContext
 {
-    public class AirlineDBContext : IdentityDbContext<IdentityUser>
+    public class AirlineDBContext : IdentityDbContext<CustomAcc>
     {
         public AirlineDBContext(DbContextOptions<AirlineDBContext> options)
             : base(options)
